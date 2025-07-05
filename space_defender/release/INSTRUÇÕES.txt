@@ -1,25 +1,51 @@
 SPACE DEFENDER - INSTRUÇÕES DE JOGO
+VERSÃO 2.0 - CONTROLES MELHORADOS!
 
 COMO JOGAR:
 1. Execute SpaceDefender (ou SpaceDefender.exe no Windows)
 2. No menu principal, pressione ESPAÇO para começar
-3. Use as setas ou WASD para mover a nave
-4. Pressione ESPAÇO para atirar
+3. Use múltiplas opções de controle para mover a nave
+4. Use várias teclas para atirar
 5. Destrua asteroides para ganhar pontos
 6. Evite colisões - você tem 3 vidas
 7. Tente bater seu recorde!
 
-CONTROLES:
-- Setas ou WASD: Mover nave
-- Espaço: Atirar
+CONTROLES MELHORADOS:
+MOVIMENTO (múltiplas opções):
+- Setas do teclado (← ↑ ↓ →)
+- WASD (W=cima, A=esquerda, S=baixo, D=direita)
+- Numpad (8=cima, 4=esquerda, 2=baixo, 6=direita)
+
+TIRO (múltiplas opções):
+- ESPAÇO (principal)
+- CTRL (esquerdo ou direito)
+- X
+- Numpad 0
+
+OUTROS:
 - ESC: Sair do jogo
 - R: Reiniciar (quando game over)
+
+MELHORIAS DA VERSÃO 2.0:
+✓ Controles mais responsivos (velocidade aumentada)
+✓ Tiro mais rápido (cooldown reduzido)
+✓ Múltiplas opções de controle
+✓ Movimento suave (delta time real)
+✓ Controles contínuos (mantenha pressionado)
 
 DICAS:
 - Asteroides grandes se dividem quando destruídos
 - Asteroides menores dão mais pontos
 - Você fica invulnerável por 2 segundos após ser atingido
 - A dificuldade aumenta com o tempo
+- Use qualquer combinação de controles que preferir
+- Mantenha as teclas pressionadas para movimento/tiro contínuo
+
+TESTE DE CONTROLES:
+Se algum controle não funcionar, teste outras opções:
+- Setas não funcionam? → Use WASD
+- WASD não funciona? → Use Numpad
+- Espaço não funciona? → Use Ctrl ou X
 
 REQUISITOS DO SISTEMA:
 - Windows 7 ou superior (para .exe)
@@ -28,4 +54,5 @@ REQUISITOS DO SISTEMA:
 - Não requer Python instalado
 
 DESENVOLVIDO EM PYTHON COM PYGAME
+Versão 2.0 - Controles Melhorados
 Projeto acadêmico - Generation Brasil

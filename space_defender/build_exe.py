@@ -12,16 +12,27 @@ def build_executable():
     """Compila o jogo em um executável"""
     print("Compilando Space Defender para Windows...")
     
-    # Comando PyInstaller
-    cmd = [
-        "pyinstaller",
+    # Comando PyInstaller - tenta diferentes formas
+    base_cmd = [
         "--onefile",                    # Um único arquivo executável
         "--windowed",                   # Sem console (para jogos)
         "--name=SpaceDefender",         # Nome do executável
-        "--icon=assets/icon.ico",       # Ícone (se existir)
-        "--add-data=assets;assets",     # Inclui pasta assets
         "main.py"
     ]
+
+    # Tenta primeiro python -m PyInstaller (mais compatível)
+    cmd = [sys.executable, "-m", "PyInstaller"] + base_cmd
+
+    # Adiciona ícone se existir
+    if os.path.exists("assets/icon.ico"):
+        cmd.insert(-1, "--icon=assets/icon.ico")
+
+    # Adiciona assets se a pasta existir
+    if os.path.exists("assets"):
+        if os.name == 'nt':  # Windows
+            cmd.insert(-1, "--add-data=assets;assets")
+        else:  # Linux/Mac
+            cmd.insert(-1, "--add-data=assets:assets")
     
     try:
         # Remove builds anteriores
@@ -33,7 +44,12 @@ def build_executable():
             os.remove("SpaceDefender.spec")
         
         # Executa PyInstaller
+        print(f"Executando: {' '.join(cmd)}")
         result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+
+        if result.stdout:
+            print("Saída:")
+            print(result.stdout)
         
         print("Compilação concluída com sucesso!")
         print("Executável criado em: dist/SpaceDefender.exe")
@@ -58,7 +74,11 @@ def build_executable():
         print(e.stderr)
         return False
     except FileNotFoundError:
-        print("PyInstaller não encontrado. Instale com: pip install pyinstaller")
+        print("PyInstaller não encontrado.")
+        print("Tente instalar com um destes comandos:")
+        print("  pip install pyinstaller")
+        print("  python -m pip install pyinstaller")
+        print("  py -m pip install pyinstaller")
         return False
     
     return True

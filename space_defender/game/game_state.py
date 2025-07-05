@@ -91,10 +91,11 @@ class GameState:
         """Reinicia o jogo após game over"""
         self.start_game()
     
-    def update(self):
+    def update(self, dt=None):
         """Atualiza a lógica do jogo"""
-        dt = 1/60  # Assume 60 FPS para simplicidade
-        
+        if dt is None:
+            dt = 1/60  # Fallback para 60 FPS
+
         if self.state == "PLAYING":
             self.update_playing(dt)
         elif self.state == "MENU":
@@ -228,8 +229,8 @@ class GameState:
             "Proteja a Terra dos asteroides!",
             "",
             "Controles:",
-            "Setas ou WASD - Mover",
-            "Espaço - Atirar",
+            "Setas/WASD/Numpad - Mover",
+            "Espaço/Ctrl/X - Atirar",
             "",
             "Pressione ESPAÇO para jogar",
             "ESC para sair"
@@ -267,7 +268,7 @@ class GameState:
 
         # HUD - Instruções
         if self.score == 0:  # Mostra apenas no início
-            help_text = self.font_small.render("Use setas/WASD para mover, ESPAÇO para atirar", True, (150, 150, 150))
+            help_text = self.font_small.render("Setas/WASD/Numpad: mover | Espaço/Ctrl/X: atirar", True, (150, 150, 150))
             help_rect = help_text.get_rect(center=(self.screen_width // 2, self.screen_height - 30))
             self.screen.blit(help_text, help_rect)
 

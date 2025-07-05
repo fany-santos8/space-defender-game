@@ -61,10 +61,10 @@ class SpaceDefender:
             # Passa eventos para o estado do jogo
             self.game_state.handle_event(event)
     
-    def update(self):
+    def update(self, dt):
         """Atualiza a lógica do jogo"""
-        self.game_state.update()
-        
+        self.game_state.update(dt)
+
         # Verifica se o jogo deve ser encerrado
         if self.game_state.should_quit:
             self.running = False
@@ -79,16 +79,20 @@ class SpaceDefender:
         """Loop principal do jogo"""
         print("Iniciando Space Defender...")
         print("Controles:")
-        print("- Setas ou WASD: Mover nave")
-        print("- Espaço: Atirar")
+        print("- Setas/WASD/Numpad: Mover nave")
+        print("- Espaço/Ctrl/X: Atirar")
         print("- ESC: Sair")
         print("- R: Reiniciar (quando game over)")
+        print("")
+        print("Dica: Mantenha pressionado para movimento/tiro contínuo!")
         
         while self.running:
+            # Calcula delta time real
+            dt = self.clock.tick(FPS) / 1000.0  # Converte para segundos
+
             self.handle_events()
-            self.update()
+            self.update(dt)
             self.draw()
-            self.clock.tick(FPS)
         
         pygame.quit()
         sys.exit()

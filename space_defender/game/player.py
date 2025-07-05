@@ -24,7 +24,7 @@ class Player:
         # Posição e movimento
         self.x = x
         self.y = y
-        self.speed = 300  # pixels por segundo
+        self.speed = 400  # pixels por segundo (aumentado para melhor responsividade)
         
         # Sprite
         self.sprite = create_ship_sprite((40, 30))
@@ -34,7 +34,7 @@ class Player:
         
         # Sistema de tiro
         self.bullets = []
-        self.shoot_cooldown = 0.2  # segundos entre tiros
+        self.shoot_cooldown = 0.15  # segundos entre tiros (mais rápido)
         self.last_shot = 0
         
         # Sons
@@ -49,22 +49,29 @@ class Player:
     def update(self, dt, keys):
         """
         Atualiza o jogador
-        
+
         Args:
             dt (float): Delta time em segundos
             keys: Estado das teclas pressionadas
         """
-        # Movimento
+        # Movimento - Verifica múltiplas formas de controle
         dx = 0
         dy = 0
-        
-        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+
+        # Movimento horizontal
+        if (keys[pygame.K_LEFT] or keys[pygame.K_a] or
+            keys[pygame.K_KP4]):  # Seta esquerda, A, ou numpad 4
             dx -= self.speed * dt
-        if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+        if (keys[pygame.K_RIGHT] or keys[pygame.K_d] or
+            keys[pygame.K_KP6]):  # Seta direita, D, ou numpad 6
             dx += self.speed * dt
-        if keys[pygame.K_UP] or keys[pygame.K_w]:
+
+        # Movimento vertical
+        if (keys[pygame.K_UP] or keys[pygame.K_w] or
+            keys[pygame.K_KP8]):  # Seta cima, W, ou numpad 8
             dy -= self.speed * dt
-        if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+        if (keys[pygame.K_DOWN] or keys[pygame.K_s] or
+            keys[pygame.K_KP2]):  # Seta baixo, S, ou numpad 2
             dy += self.speed * dt
         
         # Aplica movimento
@@ -81,9 +88,11 @@ class Player:
         self.rect.centerx = self.x
         self.rect.centery = self.y
         
-        # Sistema de tiro
+        # Sistema de tiro - Múltiplas teclas de tiro
         current_time = pygame.time.get_ticks() / 1000.0
-        if keys[pygame.K_SPACE] and current_time - self.last_shot > self.shoot_cooldown:
+        if ((keys[pygame.K_SPACE] or keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL] or
+             keys[pygame.K_KP0] or keys[pygame.K_x]) and
+            current_time - self.last_shot > self.shoot_cooldown):
             self.shoot()
             self.last_shot = current_time
         
