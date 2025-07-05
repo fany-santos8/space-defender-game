@@ -1,0 +1,31 @@
+SPACE DEFENDER - INSTRUÇÕES DE JOGO
+
+COMO JOGAR:
+1. Execute SpaceDefender (ou SpaceDefender.exe no Windows)
+2. No menu principal, pressione ESPAÇO para começar
+3. Use as setas ou WASD para mover a nave
+4. Pressione ESPAÇO para atirar
+5. Destrua asteroides para ganhar pontos
+6. Evite colisões - você tem 3 vidas
+7. Tente bater seu recorde!
+
+CONTROLES:
+- Setas ou WASD: Mover nave
+- Espaço: Atirar
+- ESC: Sair do jogo
+- R: Reiniciar (quando game over)
+
+DICAS:
+- Asteroides grandes se dividem quando destruídos
+- Asteroides menores dão mais pontos
+- Você fica invulnerável por 2 segundos após ser atingido
+- A dificuldade aumenta com o tempo
+
+REQUISITOS DO SISTEMA:
+- Windows 7 ou superior (para .exe)
+- Linux (executável nativo)
+- Não requer instalação
+- Não requer Python instalado
+
+DESENVOLVIDO EM PYTHON COM PYGAME
+Projeto acadêmico - Generation Brasil
