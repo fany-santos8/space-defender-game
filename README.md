@@ -1,6 +1,21 @@
-# Space Defender - Demo de Jogo 2D
+# 🎮 Space Defender Game - Versão 2.0
 
-Um jogo de defesa espacial desenvolvido em Python usando Pygame, onde o jogador controla uma nave espacial para defender a Terra de asteroides que caem do espaço.
+## 🚀 Controles Melhorados - Problema das Setas RESOLVIDO!
+
+Um jogo de defesa espacial desenvolvido em Python com Pygame, agora com **múltiplas opções de controle** para máxima compatibilidade!
+
+### ✨ Novidades da v2.0:
+- **🎯 Múltiplos controles**: Setas, WASD, Numpad
+- **⚡ Performance melhorada**: Movimento mais rápido e responsivo
+- **🔫 Tiro mais rápido**: Cooldown reduzido
+- **🎮 Controles contínuos**: Mantenha pressionado
+- **✅ Problema das setas RESOLVIDO!**
+
+## 📁 **IMPORTANTE: O jogo está na pasta `space_defender/`**
+
+```bash
+cd space_defender/    # ← Entre aqui para jogar!
+```
 
 ## 🎮 Sobre o Jogo
 
