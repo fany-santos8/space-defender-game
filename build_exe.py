@@ -27,7 +27,9 @@ def build_executable():
 
     # Adiciona assets se a pasta existir e não estiver vazia
     if os.path.exists("assets") and os.listdir("assets"):
-        cmd.insert(-1, "--add-data=assets;assets")
+        # Usa separador correto dependendo do sistema
+        separator = ";" if os.name == "nt" else ":"
+        cmd.insert(-1, f"--add-data=assets{separator}assets")
     
     try:
         # Remove builds anteriores
@@ -48,10 +50,16 @@ def build_executable():
         if not os.path.exists("release"):
             os.makedirs("release")
         
-        # Copia executável
-        if os.path.exists("dist/SpaceDefender.exe"):
-            shutil.copy2("dist/SpaceDefender.exe", "release/SpaceDefender.exe")
-            print("Executável copiado para: release/SpaceDefender.exe")
+        # Copia executável (verifica ambos os formatos)
+        exe_name = "SpaceDefender.exe" if os.name == "nt" else "SpaceDefender"
+        dist_path = f"dist/{exe_name}"
+        release_path = f"release/{exe_name}"
+
+        if os.path.exists(dist_path):
+            shutil.copy2(dist_path, release_path)
+            print(f"Executável copiado para: {release_path}")
+        else:
+            print(f"Aviso: Executável não encontrado em {dist_path}")
         
         # Copia assets se necessário (PyInstaller já inclui)
         print("\nPara distribuir o jogo:")
