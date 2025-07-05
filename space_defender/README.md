@@ -1,6 +1,14 @@
 # Space Defender - Demo de Jogo 2D
+## 🎮 Versão 2.0 - Controles Melhorados!
 
 Um jogo de defesa espacial desenvolvido em Python usando Pygame, onde o jogador controla uma nave espacial para defender a Terra de asteroides que caem do espaço.
+
+### ✨ Novidades da v2.0:
+- **Múltiplos controles**: Setas, WASD, Numpad
+- **Controles de tiro múltiplos**: Espaço, Ctrl, X
+- **Movimento mais rápido e responsivo**
+- **Tiro mais rápido**
+- **Problema das setas RESOLVIDO!**
 
 ## 🎮 Sobre o Jogo
 
@@ -16,9 +24,20 @@ Um jogo de defesa espacial desenvolvido em Python usando Pygame, onde o jogador 
 
 ## 🕹️ Como Jogar
 
-### Controles:
-- **Setas direcionais** ou **WASD**: Mover a nave
-- **Espaço**: Atirar
+### Controles (v2.0 - Múltiplas Opções):
+
+**Movimento da Nave:**
+- **Setas direcionais** (← ↑ ↓ →)
+- **WASD** (W=cima, A=esquerda, S=baixo, D=direita)
+- **Numpad** (8=cima, 4=esquerda, 2=baixo, 6=direita)
+
+**Tiro:**
+- **Espaço** (principal)
+- **Ctrl** (esquerdo ou direito)
+- **X**
+- **Numpad 0**
+
+**Outros:**
 - **ESC**: Sair do jogo
 - **R**: Reiniciar (quando game over)
 
@@ -42,8 +61,10 @@ Um jogo de defesa espacial desenvolvido em Python usando Pygame, onde o jogador 
 ## 🚀 Como Executar
 
 ### Opção 1: Executável Windows (Recomendado)
-1. Baixe o arquivo `SpaceDefender.exe`
-2. Execute diretamente (não precisa instalar nada)
+1. Baixe o código fonte ou use GitHub Actions
+2. Execute `build_windows.bat` OU
+3. Execute `python -m PyInstaller --onefile --windowed --name SpaceDefender main.py`
+4. Execute `dist\SpaceDefender.exe` (não precisa instalar nada)
 
 ### Opção 2: Código Fonte Python
 1. Instale Python 3.7 ou superior
@@ -55,6 +76,12 @@ Um jogo de defesa espacial desenvolvido em Python usando Pygame, onde o jogador 
    ```bash
    python main.py
    ```
+
+### Opção 3: Teste de Controles
+Para verificar se todos os controles funcionam:
+```bash
+python test_controls.py
+```
 
 ## 🛠️ Desenvolvimento
 
@@ -74,6 +101,10 @@ space_defender/
 │   └── sounds/          # Efeitos sonoros (opcional)
 ├── requirements.txt     # Dependências Python
 ├── build_exe.py        # Script de compilação
+├── test_controls.py    # Teste de controles
+├── build_windows.bat   # Compilação Windows
+├── MELHORIAS_CONTROLES.md  # Documentação v2.0
+├── COMPILAR_WINDOWS.md     # Guia de compilação
 └── README.md           # Este arquivo
 ```
 
@@ -83,8 +114,20 @@ space_defender/
 - **PyInstaller**: Compilação para executável
 
 ### Compilar para Executável:
+
+**Windows (Fácil):**
+```bash
+build_windows.bat
+```
+
+**Qualquer Sistema:**
 ```bash
 python build_exe.py
+```
+
+**Comando Direto:**
+```bash
+python -m PyInstaller --onefile --windowed --name SpaceDefender main.py
 ```
 
 ## 🎨 Assets
@@ -101,6 +144,33 @@ O jogo funciona sem assets externos, criando sprites simples programaticamente. 
 - `assets/sounds/explosion.wav` - Som da explosão
 - `assets/sounds/hit.wav` - Som de colisão
 - `assets/sounds/background_music.ogg` - Música de fundo
+
+## 🚀 Melhorias da Versão 2.0
+
+### ✨ Controles Melhorados
+- **Problema das setas RESOLVIDO**: Múltiplas opções de controle
+- **Movimento**: Setas, WASD, Numpad (2,4,6,8)
+- **Tiro**: Espaço, Ctrl, X, Numpad 0
+- **Controles contínuos**: Mantenha pressionado
+
+### ⚡ Performance
+- **Velocidade aumentada**: 300 → 400 pixels/s
+- **Tiro mais rápido**: 0.2s → 0.15s cooldown
+- **Delta time real**: Movimento suave independente do FPS
+- **Responsividade melhorada**: Controles mais precisos
+
+### 🔧 Melhorias Técnicas
+- **Sistema robusto**: Detecção de teclas com fallbacks
+- **Compatibilidade máxima**: Funciona com qualquer teclado
+- **Código otimizado**: Performance melhorada
+- **Documentação completa**: Guias e testes incluídos
+
+### 📁 Novos Arquivos
+- `test_controls.py` - Teste todos os controles
+- `build_windows.bat` - Compilação fácil no Windows
+- `MELHORIAS_CONTROLES.md` - Documentação detalhada
+- `COMPILAR_WINDOWS.md` - Guia completo de compilação
+- GitHub Actions para build automático
 
 ## 🎯 Funcionalidades Implementadas
 
