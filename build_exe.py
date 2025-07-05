@@ -18,10 +18,16 @@ def build_executable():
         "--onefile",                    # Um único arquivo executável
         "--windowed",                   # Sem console (para jogos)
         "--name=SpaceDefender",         # Nome do executável
-        "--icon=assets/icon.ico",       # Ícone (se existir)
-        "--add-data=assets;assets",     # Inclui pasta assets
         "main.py"
     ]
+
+    # Adiciona ícone se existir
+    if os.path.exists("assets/icon.ico"):
+        cmd.insert(-1, "--icon=assets/icon.ico")
+
+    # Adiciona assets se a pasta existir e não estiver vazia
+    if os.path.exists("assets") and os.listdir("assets"):
+        cmd.insert(-1, "--add-data=assets;assets")
     
     try:
         # Remove builds anteriores

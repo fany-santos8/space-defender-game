@@ -23,7 +23,13 @@ class SpaceDefender:
     def __init__(self):
         """Inicializa o jogo"""
         pygame.init()
-        pygame.mixer.init()
+
+        # Inicializa mixer de forma segura
+        try:
+            pygame.mixer.init()
+        except pygame.error as e:
+            print(f"Aviso: Não foi possível inicializar o áudio: {e}")
+            print("O jogo continuará sem som.")
         
         # Configuração da tela
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -44,8 +50,8 @@ class SpaceDefender:
     def load_assets(self):
         """Carrega todos os assets do jogo"""
         try:
-            # Música de fundo
-            if os.path.exists("assets/sounds/background_music.ogg"):
+            # Música de fundo (só tenta se mixer foi inicializado)
+            if pygame.mixer.get_init() and os.path.exists("assets/sounds/background_music.ogg"):
                 pygame.mixer.music.load("assets/sounds/background_music.ogg")
                 pygame.mixer.music.set_volume(0.3)
                 pygame.mixer.music.play(-1)  # Loop infinito

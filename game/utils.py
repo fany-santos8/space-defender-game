@@ -33,15 +33,18 @@ def load_image(path, scale=None):
 def load_sound(path):
     """
     Carrega um arquivo de som
-    
+
     Args:
         path (str): Caminho para o arquivo de som
-    
+
     Returns:
         pygame.mixer.Sound: Som carregado ou None se falhar
     """
     try:
-        return pygame.mixer.Sound(path)
+        # Só tenta carregar se mixer foi inicializado
+        if pygame.mixer.get_init():
+            return pygame.mixer.Sound(path)
+        return None
     except pygame.error:
         return None
 

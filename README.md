@@ -1,15 +1,16 @@
-# 🎮 Space Defender Game - Versão 2.0
+# 🎮 Space Defender Game - Versão 2.1
 
-## 🚀 Controles Melhorados - Problema das Setas RESOLVIDO!
+## 🚀 Controles Melhorados - Problemas CORRIGIDOS!
 
-Um jogo de defesa espacial desenvolvido em Python com Pygame, agora com **múltiplas opções de controle** para máxima compatibilidade!
+Um jogo de defesa espacial desenvolvido em Python com Pygame, agora com **múltiplas opções de controle** e **inicialização robusta**!
 
-### ✨ Novidades da v2.0:
+### ✨ Novidades da v2.1:
 - **🎯 Múltiplos controles**: Setas, WASD, Numpad
 - **⚡ Performance melhorada**: Movimento mais rápido e responsivo
 - **🔫 Tiro mais rápido**: Cooldown reduzido
 - **🎮 Controles contínuos**: Mantenha pressionado
-- **✅ Problema das setas RESOLVIDO!**
+- **🔧 Inicialização robusta**: Funciona mesmo sem áudio
+- **✅ Problemas de compatibilidade RESOLVIDOS!**
 
 ## 📁 **IMPORTANTE: O jogo está na pasta `space_defender/`**
 
